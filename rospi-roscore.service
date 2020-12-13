@@ -1,0 +1,14 @@
+[Unit]
+Description=ROS core server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/roscore/run-roscore
+Restart=always
+User=roscore
+WorkingDirectory=~
+StandardInput=null
+
+[Install]
+WantedBy=multi-user.target

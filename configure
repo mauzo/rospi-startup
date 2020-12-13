@@ -1,0 +1,17 @@
+#!/bin/sh
+
+die () {
+    echo
+    echo "$*" >&2
+    exit 1
+}
+
+echo -n "Looking for systemd unit dir..."
+systemd_dir="$(pkg-config systemd --variable=systemdsystemunitdir)"
+[ $? -eq 0 ]            || die "Can't run pkg-config!"
+[ -d "$systemd_dir" ]   || die "Can't find systemd unit dir!"
+echo " $systemd_dir"
+
+cat >config.mk <<CONFIG
+SYSTEMD_DIR=$systemd_dir
+CONFIG
