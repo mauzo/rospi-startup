@@ -12,6 +12,12 @@ systemd_dir="$(pkg-config systemd --variable=systemdsystemunitdir)"
 [ -d "$systemd_dir" ]   || die "Can't find systemd unit dir!"
 echo " $systemd_dir"
 
+echo -n "Choosing a ROS install to use..."
+ros_dir="$(echo /opt/ros/*)"
+[ -e "$ros_dir/setup.sh" ]	|| die "Can't find ROS install!"
+echo " $ros_dir"
+
 cat >config.mk <<CONFIG
 SYSTEMD_DIR=$systemd_dir
+ROS_DIR=$ros_dir
 CONFIG

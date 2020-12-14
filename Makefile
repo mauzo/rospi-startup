@@ -1,12 +1,21 @@
 sinclude config.mk
 
-systemd_units=rospi-roscore.service
+systemd_units=	rospi-roscore.service
+cleanfiles=	${systemd_units}
+distcleanfiles=	config.mk
 
 INSTALL_FILE=	install -o root -g root -m 644
 INSTALL_DIR=	install -o root -g root -m 755 -d
 
-all:
-	true
+subst_args=	-e's!@ROS_DIR@!${ROS_DIR}!g'
+
+%: %.in
+	sed ${subst_args} <$< >$@
+
+.PHONY: all install clean distclean
+
+all: ${systemd_units}
+	true	
 
 install:
 	${INSTALL_DIR} "${DESTDIR}${SYSTEMD_DIR}"
@@ -15,7 +24,7 @@ install:
 	done
 
 clean:
-	true
+	rm -f ${cleanfiles}
 
-distclean:
-	rm -f config.mk
+distclean: clean
+	rm -f ${distcleanfiles}
