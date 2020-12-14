@@ -1,17 +1,21 @@
-include config.mk
+sinclude config.mk
 
 systemd_units=rospi-roscore.service
+
+INSTALL_FILE=	install -o root -g root -m 644
+INSTALL_DIR=	install -o root -g root -m 755 -d
 
 all:
 	true
 
 install:
+	${INSTALL_DIR} "${DESTDIR}${SYSTEMD_DIR}"
 	for u in ${systemd_units}; do \
-	    install -o root -g root -m 644 "$$u" "${SYSTEMD_DIR}"; \
+	    ${INSTALL_FILE} "$$u" "${DESTDIR}${SYSTEMD_DIR}"; \
 	done
 
 clean:
 	true
 
 distclean:
-	rm config.mk
+	rm -f config.mk

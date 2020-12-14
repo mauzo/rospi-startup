@@ -1,0 +1,13 @@
+Source: rospi-startup
+Section: admin
+Priority: optional
+Maintainer: Ben Morrow <ben@morrow.me.uk>
+Build-Depends: debhelper (>= 10), autotools-dev
+Standards-Version: 4.1.2
+Vcs-Git: https://github.com/mauzo/rospi-startup.git
+
+Package: rospi-startup
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: ROS-Pi startup scripts
+    This package installs the startup scripts for ROS-Pi.

@@ -1,0 +1,6 @@
+The Debian Package rospi-startup
+----------------------------
+
+Install startup scripts for the various bits of ROS-Pi.
+
+ -- Ben Morrow <ben@morrow.me.uk>  Sun, 13 Dec 2020 18:23:56 +0000
