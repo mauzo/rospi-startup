@@ -1,3 +1,10 @@
+rospi-startup (2) bionic; urgency=medium
+ 
+  * Set up the system properly.
+    Create the roscore user. Find ROS.
+  
+ -- Ben Morrow <ben@morrow.me.uk>  Mon, 14 Dec 2020 15:04:11 +0000
+
 rospi-startup (1) bionic; urgency=medium
  
   * Initial Release.

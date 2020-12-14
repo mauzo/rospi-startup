@@ -2,12 +2,12 @@ Source: rospi-startup
 Section: admin
 Priority: optional
 Maintainer: Ben Morrow <ben@morrow.me.uk>
-Build-Depends: debhelper (>= 10), autotools-dev
+Build-Depends: debhelper (>= 10)
 Standards-Version: 4.1.2
 Vcs-Git: https://github.com/mauzo/rospi-startup.git
 
 Package: rospi-startup
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ros-melodic-ros-base
 Description: ROS-Pi startup scripts
     This package installs the startup scripts for ROS-Pi.
